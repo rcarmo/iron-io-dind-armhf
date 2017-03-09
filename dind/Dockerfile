@@ -13,9 +13,11 @@
 # limitations under the License.
 
 
-FROM docker:1.13.1-dind
+FROM rcarmo/alpine:3.5-armhf
 
-RUN apk update && apk upgrade && apk add --no-cache ca-certificates
+RUN apk update \
+ && apk upgrade \
+ && apk add --no-cache ca-certificates docker
 
 COPY entrypoint.sh /usr/local/bin/
 COPY dind.sh /usr/local/bin/
